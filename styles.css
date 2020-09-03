@@ -8,11 +8,19 @@ red - #ee5253
 
 */
 
+
+html {
+  background: url("./assets/burger-friends.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body {
   font-family: 'Roboto', sans-serif;
-  background: url("./assets/burger-friends.jpg") no-repeat center fixed; */
-  background: cover;
-  background-color: grey;
+  /* background: url("./assets/burger-friends.jpg") no-repeat center fixed; */
+  /* background: cover;
+  background-color: grey; */ */
 }
 
 .background-img {
@@ -20,10 +28,14 @@ body {
   width: 100%;
 }
 
+article {
+  background-color: rgba(225, 225, 225, .9);
+}
+
 header {
   background: #0fb9b1;
 }
 
 footer {
-  background: #95a5a6
+  background: rgba(225, 225, 225, .9);c
 }
