@@ -14,22 +14,20 @@
     <main>
       <article class="looking">
         <h3>What are you looking for? <span class="required">*</span></h3>
-          <div class="side">
-              <input type="radio" name="radio" value="">
+          <div>
+              <input class="side" type="radio" name="radio" value="">
               Side
           </div>
-          <div class="main-dish">
-
-              <input type="radio" name="radio" value="">
+          <div>
+              <input class="main-dish" type="radio" name="radio" value="">
               Main Dish
           </div>
-          <div class="dessert">
-
-              <input type="radio" name="radio" value="">
+          <div>
+              <input class="dessert" type="radio" name="radio" value="">
               Dessert
           </div>
-          <div class="entire-meal">
-              <input type="radio" name="radio" value="">
+          <div>
+              <input class="entire-meal" type="radio" name="radio" value="">
               Entire Meal
           </div>
         <button class="lets-cook-button" type="button" name="lets-cook">LET'S COOK!</button>
@@ -40,9 +38,14 @@
         </svg>
       </article>
       <article class="recipe suggestion hidden">
+        <em>You should make:</em>
+        <h1 class="food-suggestion">placeholder</h1>
+        <div class="clear-recipe">
+          <button class="clear-button" type="button" name="clear">CLEAR</button>
+        </div>
       </article>
     </main>
-    <!-- <footer>
+    <!-- <footer
       <nav>
         <p>Recipe Type:</p>
         <input type="text" name="Recipe Type" value="">

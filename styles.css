@@ -54,12 +54,15 @@ input {
   color: #ee5253;
 }
 
+
 .lets-cook-button {
-  width: 150px;
+  width: 120px;
   height: 30px;
   border: none;
+  border-radius: 3px;
   background: #0fb9b1;
   margin-top: 7px;
+  /* some styling for when mouse is hovering needed for this button */
 }
 
 div {
@@ -76,6 +79,38 @@ div {
 .cookpot-img {
   height: 110px;
   width: 1100px;
+}
+
+.suggestion {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.food-suggestion {
+  margin: 0;
+  font-weight: bold;
+}
+
+.clear-recipe{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+.clear-button {
+  width: 80px;
+  height: 30px;
+  border: none;
+  background: #95a5a6;
+  margin-right: 20px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+/* some styling still needed for this button */
 }
 
 header {
