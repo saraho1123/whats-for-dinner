@@ -71,7 +71,6 @@ function displaySuggestion() {
   foodSuggestion.innerText = `${suggested}!`;
   toggleCookpot();
 }
-// refactor this function!
 
 function sideSuggestion() {
   suggested = sides[getRandomFoods(sides)];
