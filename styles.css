@@ -81,25 +81,11 @@ div {
   width: 1100px;
 }
 
-.suggestion {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-}
-
-.food-suggestion {
-  margin: 0;
-  font-weight: bold;
-}
-
 .clear-recipe{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-end;
 }
-
 
 .clear-button {
   width: 80px;
@@ -111,6 +97,18 @@ div {
   border-radius: 3px;
   color: white;
 /* some styling still needed for this button */
+}
+
+.suggestion {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.food-suggestion {
+  margin: 0;
+  font-weight: bold;
 }
 
 header {
