@@ -9,7 +9,7 @@ var sides = [
  'Shrimp Summer Rolls',
  'Garlic Butter Mushrooms',
  'Hush Puppies',
- 'Isaac\'s Special'
+ 'Isaac\'s Special Side'
 ]
 var mains = [
   'Spaghetti and Meatballs',
@@ -25,6 +25,8 @@ var mains = [
   'Chicken Fried Rice',
   'Sheet Pan Fajitas',
   'Margarita Pizza',
+  'Taco Casserole',
+  'Isaac\'s Special Dinner'
 ]
 var desserts = [
   'Apple Pie',
@@ -45,6 +47,8 @@ var desserts = [
   'Tart Tatin',
   'Croissants',
   'Eclairs',
+  'Cookies \'n Cream Ice Cream',
+  'Isaac\'s Choice ;)'
 ]
 var suggested;
 
@@ -77,11 +81,11 @@ function sideSuggestion() {
   }
 
 function mainDishSuggestion() {
-  suggested = sides[getRandomFoods(sides)];
+  suggested = mains[getRandomFoods(mains)];
   }
 
 function dessertSuggestion() {
-  suggested = sides[getRandomFoods(sides)];
+  suggested = desserts[getRandomFoods(desserts)];
   }
 
 // function entireMealSuggestion() {
