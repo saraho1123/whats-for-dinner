@@ -7,16 +7,16 @@ var dessert = document.querySelector(".dessert");
 var entireMeal = document.querySelector(".entire-meal");
 var cookpot = document.querySelector(".cookpot");
 var foodSuggestion = document.querySelector(".food-suggestion");
-// var sideForMeal = document.querySelector(".side-for-meal");
-// var mainForMeal = document.querySelector(".main-for-meal");
-// var dessertForMeal = document.querySelector(".dessert-for-meal");
 var suggestion = document.querySelector(".suggestion");
+// var clearButton = document.querySelector(".clear-button");
+// consider querySelectorAll for the radio buttons!
 
 letsCookButton.addEventListener('click', displaySuggestion);
 side.addEventListener("click", sideSuggestion);
 mainDish.addEventListener("click", mainDishSuggestion);
 dessert.addEventListener("click", dessertSuggestion);
 entireMeal.addEventListener("click", entireMealSuggestion);
+// clearButton.addEventListener("click", clearSuggestions);
 
 function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
@@ -25,7 +25,7 @@ function getRandomFoods(array) {
 function displaySuggestion() {
   foodSuggestion.innerText = `${suggested}!`;
   console.log(suggested);
-  toggleCookpot();
+  hideCookpot();
 }
 
 function sideSuggestion() {
@@ -43,7 +43,7 @@ function dessertSuggestion() {
 function displaySuggestion() {
   foodSuggestion.innerText = `${suggested}!`;
   console.log(suggested);
-  toggleCookpot();
+  hideCookpot();
 }
 
 function entireMealSuggestion() {
@@ -56,7 +56,11 @@ function entireMealSuggestion() {
   return suggested;
 }
 
-function toggleCookpot() {
+function hideCookpot() {
   suggestion.classList.remove("hidden");
   cookpot.classList.add("hidden");
 }
+
+// function clearSuggestions() {
+//   console.log('clear');
+// }

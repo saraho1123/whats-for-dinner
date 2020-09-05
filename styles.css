@@ -54,7 +54,6 @@ input {
   color: #ee5253;
 }
 
-
 .lets-cook-button {
   width: 120px;
   height: 30px;
@@ -98,7 +97,6 @@ div {
   border: none;
   border-radius: 3px;
   color: white;
-/* some styling still needed for this button */
 }
 
 .suggestion {
@@ -141,7 +139,7 @@ header {
 }
 
 footer {
-  background: rgba(225, 225, 225, .9);c
+  background: rgba(225, 225, 225, .9);
 }
 
 .hidden {
