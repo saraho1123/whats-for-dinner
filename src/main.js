@@ -9,6 +9,7 @@ var cookpot = document.querySelector(".cookpot");
 var foodSuggestion = document.querySelector(".food-suggestion");
 var suggestion = document.querySelector(".suggestion");
 var clearButton = document.querySelector(".clear-button");
+var
 // consider querySelectorAll for the radio buttons!
 
 letsCookButton.addEventListener('click', displaySuggestion);

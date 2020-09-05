@@ -15,19 +15,19 @@
       <article class="looking-box">
         <h3>What are you looking for? <span class="required">*</span></h3>
           <div>
-              <input class="side" type="radio" name="radio" value="">
+              <input class="side radio" type="radio" name="radio" value="">
               Side
           </div>
           <div>
-              <input class="main-dish" type="radio" name="radio" value="">
+              <input class="main-dish radio" type="radio" name="radio" value="">
               Main Dish
           </div>
           <div>
-              <input class="dessert" type="radio" name="radio" value="">
+              <input class="dessert radio" type="radio" name="radio" value="">
               Dessert
           </div>
           <div>
-              <input class="entire-meal" type="radio" name="radio" value="">
+              <input class="entire-meal radio" type="radio" name="radio" value="">
               Entire Meal
           </div>
         <button class="lets-cook-button" type="button" name="lets-cook">LET'S COOK!</button>
@@ -47,15 +47,13 @@
         </div>
       </article>
     </main>
-    <!-- <footer
-      <nav>
-        <p>Recipe Type:</p>
-        <input type="text" name="Recipe Type" value="">
-        <p>Recipe Name:</p>
-        <input type="text" name="Recipe Name" value="">
-        <button type="button" name="button">ADD NEW</button>
-      </nav>
-    </footer> -->
+    <form class="footer" action="index.html" method="post">
+        <label for="recipe-type">Recipe Type:</label>
+        <input class="input" type="text" name="recipe-type" value="">
+        <label for="recipe-name">Recipe Name:</label>
+        <input class="input" type="text" name="recipe-name" value="">
+        <button class="add-new" type="button" name="button">ADD NEW</button>
+    </form>
   </body>
   <script type="text/javascript" src="./src/main.js"></script>
   <script type="text/javascript" src="./src/Meal.js"></script>
