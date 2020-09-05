@@ -93,6 +93,8 @@ div {
   border: none;
   background: #95a5a6;
   margin-right: 20px;
+  /* margin-top: 20px; */
+  margin-bottom: 10px;
   border: none;
   border-radius: 3px;
   color: white;
@@ -104,6 +106,14 @@ div {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+}
+
+.suggested-items {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .food-suggestion {
