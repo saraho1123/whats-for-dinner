@@ -1,10 +1,12 @@
 var suggested;
 
 var letsCookButton = document.querySelector(".lets-cook-button")
-var side = document.querySelector(".side");
-var mainDish = document.querySelector(".main-dish");
-var dessert = document.querySelector(".dessert");
-var entireMeal = document.querySelector(".entire-meal");
+// var side = document.querySelector(".side");
+// var mainDish = document.querySelector(".main-dish");
+// var dessert = document.querySelector(".dessert");
+// var entireMeal = document.querySelector(".entire-meal");
+var radioButtons = document.querySelectorAll(".radio");
+
 var cookpot = document.querySelector(".cookpot");
 var foodSuggestion = document.querySelector(".food-suggestion");
 var suggestion = document.querySelector(".suggestion");
@@ -32,28 +34,34 @@ function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displaySuggestion(event) {
-  console.log(suggested);
-  if (suggested == "undefined") {
-    foodSuggestion.innerText = "Please choose a type from the list on the left."
+function displaySuggestion() {
+  for (var i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      // whichType();
+      foodSuggestion.innerText = `${suggested}!`;
+      hideCookpot();
+      // uncheckRadioButton();
+      event.preventDefault();
+    }
   }
-  whichType();
-  foodSuggestion.innerText = `${suggested}!`;
-  hideCookpot();
-  uncheckRadioButton();
+
 }
 
-function whichType() {
-  if (side.checked) {
-    sideSuggestion();
-  } else if (mainDish.checked) {
-      mainDishSuggestion();
-  } else if (dessert.checked) {
-      dessertSuggestion();
-  } else if (entireMeal.checked) {
-      entireMealSuggestion();
-  }
-}
+// function whichType() {
+//   if (side.checked) {
+//     sideSuggestion();
+//   } else if (mainDish.checked) {
+//       mainDishSuggestion();
+//   } else if (dessert.checked) {
+//       dessertSuggestion();
+//   } else if (entireMeal.checked) {
+//       entireMealSuggestion();
+//   }
+// }
+var side = document.querySelector(".side");
+var mainDish = document.querySelector(".main-dish");
+var dessert = document.querySelector(".dessert");
+var entireMeal = document.querySelector(".entire-meal");
 
 function sideSuggestion() {
   suggested = sides[getRandomFoods(sides)];
@@ -82,12 +90,12 @@ function hideCookpot() {
   cookpot.classList.add("hidden");
 }
 
-function uncheckRadioButton() {
-  side.checked = false;
-  mainDish.checked = false;
-  dessert.checked = false;
-  entireMeal.checked = false;
-}
+// function uncheckRadioButton() {
+//   side.checked = false;
+//   mainDish.checked = false;
+//   dessert.checked = false;
+//   entireMeal.checked = false;
+// }
 
 function clearSuggestions() {
   suggestion.classList.add("hidden");
@@ -111,20 +119,20 @@ function displayNewUserIdea() {
 }
 
 function newUserSide() {
-  sides.push(recipeNameInput.value);
-  suggested = sides[sides.length - 1];
+  userSides.push(recipeNameInput.value);
+  suggested = userSides[userSides.length - 1];
   displaySuggestion();
 }
 
 function newUserMainDish() {
-  mains.push(recipeNameInput.value);
-  suggested = mains[mains.length - 1];
+  userMains.push(recipeNameInput.value);
+  suggested = userMains[userMains.length - 1];
   displaySuggestion();
 }
 
 function newUserDessert() {
-  desserts.push(recipeNameInput.value);
-  suggested = desserts[desserts.length - 1];
+  userDesserts.push(recipeNameInput.value);
+  suggested = userDesserts[userDesserts.length - 1];
   displaySuggestion();
 }
 
@@ -138,4 +146,8 @@ function displayUserWholeMeal() {
     console.log(userMeal);
     suggested = `${userMeal.main} with a side of\n${userMeal.side} and\n${userMeal.dessert}`;
     displaySuggestion();
+}
+
+function alert() {
+
 }
