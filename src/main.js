@@ -22,7 +22,7 @@ var userMeal = document.querySelector(".user-meal");
 // consider querySelectorAll for the radio buttons!
 // will need quite a bit of refactoring!
 
-letsCookButton.addEventListener('click', displaySuggestion);
+letsCookButton.addEventListener("click", displaySuggestion);
 clearButton.addEventListener("click", clearSuggestions);
 addRecipeButton.addEventListener("click", showForm);
 addNewButton.addEventListener("click", displayNewUserIdea);
@@ -37,11 +37,13 @@ function getRandomFoods(array) {
 function displaySuggestion() {
   for (var i = 0; i < radioButtons.length; i++) {
     if (radioButtons[i].checked) {
-      // whichType();
+      whichType();
       foodSuggestion.innerText = `${suggested}!`;
       hideCookpot();
       // uncheckRadioButton();
-      event.preventDefault();
+      // event.preventDefault();
+    } else {
+      foodSuggestion.innerText = "Please choose a food type from the list."
     }
   }
 
@@ -65,14 +67,17 @@ var entireMeal = document.querySelector(".entire-meal");
 
 function sideSuggestion() {
   suggested = sides[getRandomFoods(sides)];
+  // foodSuggestion.innerText = `${suggested}!`;
 }
 
 function mainDishSuggestion() {
   suggested = mains[getRandomFoods(mains)];
+  // foodSuggestion.innerText = `${suggested}!`;
   }
 
 function dessertSuggestion() {
   suggested = desserts[getRandomFoods(desserts)];
+  // foodSuggestion.innerText = `${suggested}!`;
   }
 
 function entireMealSuggestion() {
