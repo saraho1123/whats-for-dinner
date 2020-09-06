@@ -9,8 +9,15 @@ var cookpot = document.querySelector(".cookpot");
 var foodSuggestion = document.querySelector(".food-suggestion");
 var suggestion = document.querySelector(".suggestion");
 var clearButton = document.querySelector(".clear-button");
-var
+var addRecipeButton = document.querySelector(".add-recipe-button");
+// var form = document.querySelector(".footer");
+// var recipeTypeInput = document.querySelector(".recipe-type");
+// var recipeNameInput = document.querySelector(".recipe-name");
+// var addNewButton = document.querySelector(".add-new");
+
+
 // consider querySelectorAll for the radio buttons!
+// will need quite a bit of refactoring!
 
 letsCookButton.addEventListener('click', displaySuggestion);
 side.addEventListener("click", sideSuggestion);
@@ -18,6 +25,11 @@ mainDish.addEventListener("click", mainDishSuggestion);
 dessert.addEventListener("click", dessertSuggestion);
 entireMeal.addEventListener("click", entireMealSuggestion);
 clearButton.addEventListener("click", clearSuggestions);
+// addRecipeButton.addEventListener("click", showForm);
+// // recipeTypeInput.addEventListener("keyup", determineType);
+// recipeNameInput.addEventListener("keyup", getUserName);
+// addNewButton.addEventListener("click", displayNewUserIdea);
+//
 
 function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
@@ -25,7 +37,6 @@ function getRandomFoods(array) {
 
 function displaySuggestion() {
   foodSuggestion.innerText = `${suggested}!`;
-  console.log(suggested);
   hideCookpot();
   uncheckRadioButton();
 }
@@ -65,7 +76,41 @@ function uncheckRadioButton() {
 }
 
 function clearSuggestions() {
-  console.log('clear');
   suggestion.classList.add("hidden");
   cookpot.classList.remove("hidden");
 }
+
+// function showForm() {
+//   // form.classList.remove("hidden");
+// }
+//
+// function displayNewUserIdea() {
+//
+// }
+//
+// // function determineType(event) {
+// //     console.log(recipeTypeInput.value)
+// //   var foodData = ['side', 'main dish', 'dessert']
+// //   for (var i = 0; i < foodData.length; i++) {
+// //     if (recipeTypeInput.value === foodData[i]) {
+// //       console.log(recipeTypeInput.value)
+// //       console.log(foodData[i]);
+// //     }
+// //   }
+//
+//   // if (event.target === "side") {
+//   //   // getUserName();
+//   // } else if (event.)
+// // }
+//
+// function getUserName() {
+//   // var foodData = ['side', 'main dish', 'dessert']
+//   // for (var i = 0; i < foodData.length; i++) {
+//   //   if (recipeTypeInput.value === 'side') {
+//   //     // console.log(recipeTypeInput.value)
+//   //     // console.log(foodData[i]);)
+//   //     sides.push(recipeNameInput.value);
+//   //   }
+//   // }
+//   //     console.log(sides);
+// }
