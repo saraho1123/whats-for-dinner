@@ -20,10 +20,10 @@ var addNewButton = document.querySelector(".add-new");
 // will need quite a bit of refactoring!
 
 letsCookButton.addEventListener('click', displaySuggestion);
-side.addEventListener("click", sideSuggestion);
-mainDish.addEventListener("click", mainDishSuggestion);
-dessert.addEventListener("click", dessertSuggestion);
-entireMeal.addEventListener("click", entireMealSuggestion);
+// side.addEventListener("click", sideSuggestion);
+// mainDish.addEventListener("click", mainDishSuggestion);
+// dessert.addEventListener("click", dessertSuggestion);
+// entireMeal.addEventListener("click", entireMealSuggestion);
 clearButton.addEventListener("click", clearSuggestions);
 addRecipeButton.addEventListener("click", showForm);
 // recipeTypeInput.addEventListener("keyup", determineType);
@@ -41,7 +41,7 @@ function displaySuggestion() {
   whichType();
   foodSuggestion.innerText = `${suggested}!`;
   hideCookpot();
-  // uncheckRadioButton();
+  uncheckRadioButton();
 }
 
 function whichType() {
@@ -98,4 +98,33 @@ function clearSuggestions() {
 
 function showForm() {
   form.classList.toggle("hidden");
+}
+
+function displayNewUserIdea() {
+  var userIdea = recipeTypeInput.value.toLowerCase();
+  if (userIdea === 'side') {
+    newUserSide();
+  } else if (userIdea === 'main dish') {
+    newUserMainDish();
+  } else if (userIdea === 'dessert') {
+    newUserDessert();
+  }
+}
+
+function newUserSide() {
+  sides.push(recipeNameInput.value);
+  suggested = sides[sides.length - 1];
+  displaySuggestion();
+}
+
+function newUserMainDish() {
+  mains.push(recipeNameInput.value);
+  suggested = mains[mains.length - 1];
+  displaySuggestion();
+}
+
+function newUserDessert() {
+  desserts.push(recipeNameInput.value);
+  suggested = desserts[desserts.length - 1];
+  displaySuggestion();
 }
