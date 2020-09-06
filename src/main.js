@@ -99,10 +99,10 @@ function showForm() {
 
 function displayNewUserIdea() {
   var userType = recipeTypeInput.value.toLowerCase();
+  console.log(userType);
   if (userType === 'side') {
     newUserSide();
-  } else if (userType === 'main dish') {
-    console.log(usertype);
+  } else if (userType === 'main') {
     newUserMainDish();
   } else if (userType === 'dessert') {
     newUserDessert();
@@ -128,6 +128,6 @@ function newUserDessert() {
 }
 
 function displayUserWholeMeal() {
-  alert("This button displays the last Side, Main Dish, and Dessert that you entered in the Recipe Name field.");
+  // alert("This button displays the last Side, Main Dish, and Dessert that you entered in the Recipe Name field.");
 
 }
