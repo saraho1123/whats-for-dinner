@@ -32,7 +32,8 @@ function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displaySuggestion() {
+function displaySuggestion(event) {
+  console.log(suggested);
   if (suggested == "undefined") {
     foodSuggestion.innerText = "Please choose a type from the list on the left."
   }
@@ -128,6 +129,13 @@ function newUserDessert() {
 }
 
 function displayUserWholeMeal() {
-  // alert("This button displays the last Side, Main Dish, and Dessert that you entered in the Recipe Name field.");
-
+  alert("This button randomly displays a Side, Main Dish, and Dessert that you have entered in the Recipe Name field.");
+  var userMeal = new Meal(
+    userSides[getRandomFoods(userSides)],
+    userMains[getRandomFoods(userMains)],
+    userDesserts[getRandomFoods(userDesserts)],
+    )
+    console.log(userMeal);
+    suggested = `${userMeal.main} with a side of\n${userMeal.side} and\n${userMeal.dessert}`;
+    displaySuggestion();
 }

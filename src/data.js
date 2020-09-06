@@ -58,3 +58,7 @@ var desserts = [
   'Fudgcicle',
   'Chocolate Chip Ice Cream'
 ]
+
+var userSides = [];
+var userMains = [];
+var userDesserts = [];
