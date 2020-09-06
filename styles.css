@@ -158,14 +158,15 @@ label {
   margin-right: 20px;
 }
 
-.add-new {
-  width: 80px;
+.form-button {
+  width: auto;
   height: 25px;
   border: none;
   border-radius: 3px;
   background: #0fb9b1;
   margin-top: 7px;
   margin-bottom: 7px;
+  margin-left: 15px;
 }
 
 .hidden {
