@@ -1,5 +1,5 @@
 var sides = [
-'Miso Glazed Carrots',
+ 'Miso Glazed Carrots',
  'Coleslaw',
  'Garden Salad',
  'Crisy Potatoes',
@@ -9,7 +9,8 @@ var sides = [
  'Shrimp Summer Rolls',
  'Garlic Butter Mushrooms',
  'Hush Puppies',
- 'Isaac\'s Special Side'
+ 'Isaac\'s Special Side',
+ 'Cheesy Biscuits',
 ]
 var mains = [
   'Spaghetti and Meatballs',
@@ -26,7 +27,11 @@ var mains = [
   'Sheet Pan Fajitas',
   'Margarita Pizza',
   'Taco Casserole',
-  'Isaac\'s Special Dinner'
+  'Isaac\'s Special Dinner',
+  'Hamburger',
+  'Tacos',
+  'Scrambled Eggs',
+  'Lemon Rosemary Salmon',
 ]
 var desserts = [
   'Apple Pie',
@@ -48,5 +53,8 @@ var desserts = [
   'Croissants',
   'Eclairs',
   'Cookies \'n Cream Ice Cream',
-  'Isaac\'s Choice ;)'
+  'Isaac\'s Choice ;)',
+  'Chocolate Brownie w/ Vanilla Ice Cream',
+  'Fudgcicle',
+  'Chocolate Chip Ice Cream'
 ]
