@@ -9,7 +9,7 @@ var sides = [
  'Shrimp Summer Rolls',
  'Garlic Butter Mushrooms',
  'Hush Puppies',
- 'Isaac\'s Special Side'
+ 'Isaac\'s Special Side',
  'Cheesy Biscuits',
 ]
 var mains = [
@@ -29,7 +29,9 @@ var mains = [
   'Taco Casserole',
   'Isaac\'s Special Dinner',
   'Hamburger',
-  'Tacos'
+  'Tacos',
+  'Scrambled Eggs',
+  'Lemon Rosemary Salmon',
 ]
 var desserts = [
   'Apple Pie',
