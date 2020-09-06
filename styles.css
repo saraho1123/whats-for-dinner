@@ -169,6 +169,10 @@ label {
   margin-left: 15px;
 }
 
+.user-meal:hover {
+  
+}
+
 .hidden {
   display: none;
 }

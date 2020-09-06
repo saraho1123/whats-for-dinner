@@ -48,12 +48,25 @@
       </article>
     </main>
     <form class="footer hidden" action="index.html" method="post">
-        <label for="recipe-type">Recipe Type:</label>
-        <input class="recipe-type input" type="text" name="recipe-type" value="">
+        <label for="recipe-type">Choose a recipe type:</label>
+        <!-- <input class="recipe-type input" type="text" name="recipe-type" value=""> -->
+        <select class="recipe-type input" name="">
+          <option value="">--Please choose an option--</option>
+          <option value="side">Side</option>
+          <option value="main">Main Dish</option>
+          <option value="dessert">Dessert</option>
+        </select>
         <label for="recipe-name">Recipe Name:</label>
         <input class="recipe-name input" type="text" name="recipe-name" value="">
         <button class="add-new form-button" type="button" name="button">ADD NEW</button>
-        <button class="user-meal form-button" type="button" name="button">Display My Whole Meal!</button>
+        <button class="user-meal form-button" type="button" name="button" title="This button displays the last Side, Main Dish, and Dessert that you entered in the Recipe Name field.">
+          Display My Whole Meal!</button>
+        <!-- <div class="alert hidden">
+          This button displays the last Side, Main Dish, and Dessert that you entered in the Recipe Name field.
+
+
+        </div> -->
+
     </form>
   </body>
   <script type="text/javascript" src="./src/main.js"></script>
