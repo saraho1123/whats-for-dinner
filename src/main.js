@@ -14,21 +14,19 @@ var form = document.querySelector(".footer");
 var recipeTypeInput = document.querySelector(".recipe-type");
 var recipeNameInput = document.querySelector(".recipe-name");
 var addNewButton = document.querySelector(".add-new");
+var userMeal = document.querySelector(".user-meal");
 
 
 // consider querySelectorAll for the radio buttons!
 // will need quite a bit of refactoring!
 
 letsCookButton.addEventListener('click', displaySuggestion);
-// side.addEventListener("click", sideSuggestion);
-// mainDish.addEventListener("click", mainDishSuggestion);
-// dessert.addEventListener("click", dessertSuggestion);
-// entireMeal.addEventListener("click", entireMealSuggestion);
 clearButton.addEventListener("click", clearSuggestions);
 addRecipeButton.addEventListener("click", showForm);
-// recipeTypeInput.addEventListener("keyup", determineType);
-// recipeNameInput.addEventListener("keyup", getUserName);
 addNewButton.addEventListener("click", displayNewUserIdea);
+userMeal.addEventListener("click", displayUserWholeMeal);
+
+
 
 function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
@@ -48,7 +46,6 @@ function whichType() {
   if (side.checked) {
     sideSuggestion();
   } else if (mainDish.checked) {
-    console.log('works here??');
       mainDishSuggestion();
   } else if (dessert.checked) {
       dessertSuggestion();
@@ -101,12 +98,13 @@ function showForm() {
 }
 
 function displayNewUserIdea() {
-  var userIdea = recipeTypeInput.value.toLowerCase();
-  if (userIdea === 'side') {
+  var userType = recipeTypeInput.value.toLowerCase();
+  if (userType === 'side') {
     newUserSide();
-  } else if (userIdea === 'main dish') {
+  } else if (userType === 'main dish') {
+    console.log(usertype);
     newUserMainDish();
-  } else if (userIdea === 'dessert') {
+  } else if (userType === 'dessert') {
     newUserDessert();
   }
 }
@@ -127,4 +125,9 @@ function newUserDessert() {
   desserts.push(recipeNameInput.value);
   suggested = desserts[desserts.length - 1];
   displaySuggestion();
+}
+
+function displayUserWholeMeal() {
+  alert("This button displays the last Side, Main Dish, and Dessert that you entered in the Recipe Name field.");
+
 }
