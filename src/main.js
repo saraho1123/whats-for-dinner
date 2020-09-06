@@ -36,30 +36,32 @@ function getRandomFoods(array) {
 
 function displaySuggestion() {
   for (var i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].checked) {
+    if (radioButtons[i].checked == true) {
+      console.log(radioButtons[i])
       whichType();
       foodSuggestion.innerText = `${suggested}!`;
       hideCookpot();
       // uncheckRadioButton();
       // event.preventDefault();
     } else {
-      foodSuggestion.innerText = "Please choose a food type from the list."
+      foodSuggestion.innerText = "Please choose a\nfood type\nfrom the list.";
+      hideCookpot();
     }
   }
 
 }
 
-// function whichType() {
-//   if (side.checked) {
-//     sideSuggestion();
-//   } else if (mainDish.checked) {
-//       mainDishSuggestion();
-//   } else if (dessert.checked) {
-//       dessertSuggestion();
-//   } else if (entireMeal.checked) {
-//       entireMealSuggestion();
-//   }
-// }
+function whichType() {
+  if (side.checked) {
+    sideSuggestion();
+  } else if (mainDish.checked) {
+      mainDishSuggestion();
+  } else if (dessert.checked) {
+      dessertSuggestion();
+  } else if (entireMeal.checked) {
+      entireMealSuggestion();
+  }
+}
 var side = document.querySelector(".side");
 var mainDish = document.querySelector(".main-dish");
 var dessert = document.querySelector(".dessert");
@@ -95,12 +97,12 @@ function hideCookpot() {
   cookpot.classList.add("hidden");
 }
 
-// function uncheckRadioButton() {
-//   side.checked = false;
-//   mainDish.checked = false;
-//   dessert.checked = false;
-//   entireMeal.checked = false;
-// }
+function uncheckRadioButton() {
+  side.checked = false;
+  mainDish.checked = false;
+  dessert.checked = false;
+  entireMeal.checked = false;
+}
 
 function clearSuggestions() {
   suggestion.classList.add("hidden");
