@@ -1,54 +1,45 @@
 var suggested;
-
 var letsCookButton = document.querySelector(".lets-cook-button")
-// var side = document.querySelector(".side");
-// var mainDish = document.querySelector(".main-dish");
-// var dessert = document.querySelector(".dessert");
-// var entireMeal = document.querySelector(".entire-meal");
-var radioButtons = document.querySelectorAll(".radio");
-
+var side = document.querySelector(".side");
+var mainDish = document.querySelector(".main-dish");
+var dessert = document.querySelector(".dessert");
+var entireMeal = document.querySelector(".entire-meal");
 var cookpot = document.querySelector(".cookpot");
-var foodSuggestion = document.querySelector(".food-suggestion");
+// var foodSuggestion = document.querySelector(".food-suggestion");
 var suggestion = document.querySelector(".suggestion");
 var clearButton = document.querySelector(".clear-button");
 var addRecipeButton = document.querySelector(".add-recipe-button");
-var form = document.querySelector(".footer");
 var recipeTypeInput = document.querySelector(".recipe-type");
 var recipeNameInput = document.querySelector(".recipe-name");
 var addNewButton = document.querySelector(".add-new");
-var userMeal = document.querySelector(".user-meal");
-
+var userMealButton = document.querySelector(".user-meal");
+var htmlAlert = document.querySelector(".alert");
 
 // consider querySelectorAll for the radio buttons!
 // will need quite a bit of refactoring!
+// NOTE: I tried this and couldn't get it to work!!
+
+// I think want to put all my query selectors and event listeners in
+// a seperate .js file!
 
 letsCookButton.addEventListener("click", displaySuggestion);
 clearButton.addEventListener("click", clearSuggestions);
 addRecipeButton.addEventListener("click", showForm);
 addNewButton.addEventListener("click", displayNewUserIdea);
-userMeal.addEventListener("click", displayUserWholeMeal);
-
-
+userMealButton.addEventListener("click", displayUserWholeMeal);
+userMealButton.addEventListener("mouseover", toggleAlert);
+userMealButton.addEventListener("mouseleave", toggleAlert);
 
 function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
 }
 
 function displaySuggestion() {
-  for (var i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].checked == true) {
-      console.log(radioButtons[i])
-      whichType();
-      foodSuggestion.innerText = `${suggested}!`;
-      hideCookpot();
-      // uncheckRadioButton();
-      // event.preventDefault();
-    } else {
-      foodSuggestion.innerText = "Please choose a\nfood type\nfrom the list.";
-      hideCookpot();
-    }
-  }
-
+  whichType();
+  var foodSuggestion = document.querySelector(".food-suggestion");
+  foodSuggestion.innerText = `${suggested}!`;
+  hideCookpot();
+  uncheckRadioButton();
 }
 
 function whichType() {
@@ -62,25 +53,18 @@ function whichType() {
       entireMealSuggestion();
   }
 }
-var side = document.querySelector(".side");
-var mainDish = document.querySelector(".main-dish");
-var dessert = document.querySelector(".dessert");
-var entireMeal = document.querySelector(".entire-meal");
 
 function sideSuggestion() {
   suggested = sides[getRandomFoods(sides)];
-  // foodSuggestion.innerText = `${suggested}!`;
 }
 
 function mainDishSuggestion() {
   suggested = mains[getRandomFoods(mains)];
-  // foodSuggestion.innerText = `${suggested}!`;
-  }
+}
 
 function dessertSuggestion() {
   suggested = desserts[getRandomFoods(desserts)];
-  // foodSuggestion.innerText = `${suggested}!`;
-  }
+}
 
 function entireMealSuggestion() {
   var entireMeal = new Meal(
@@ -110,6 +94,7 @@ function clearSuggestions() {
 }
 
 function showForm() {
+  var form = document.querySelector(".footer");
   form.classList.toggle("hidden");
 }
 
@@ -126,7 +111,9 @@ function displayNewUserIdea() {
 }
 
 function newUserSide() {
-  userSides.push(recipeNameInput.value);
+  var newSide = recipeNameInput.value
+  sides.push(newSide);
+  userSides.push(newSide);
   suggested = userSides[userSides.length - 1];
   displaySuggestion();
 }
@@ -144,17 +131,20 @@ function newUserDessert() {
 }
 
 function displayUserWholeMeal() {
-  alert("This button randomly displays a Side, Main Dish, and Dessert that you have entered in the Recipe Name field.");
   var userMeal = new Meal(
     userSides[getRandomFoods(userSides)],
     userMains[getRandomFoods(userMains)],
     userDesserts[getRandomFoods(userDesserts)],
-    )
-    console.log(userMeal);
-    suggested = `${userMeal.main} with a side of\n${userMeal.side} and\n${userMeal.dessert}`;
+  )
+  suggested = `${userMeal.main} with a side of\n${userMeal.side} and\n${userMeal.dessert}`;
+  // if (userMeal.main.length === 0 && userMeal.side.length === 0 && userMeal.dessert.length === 0) {
+  //   suggested = `Please choose a side, main dish and Dessert`;
+  //   displaySuggestion();
+  // } else {
     displaySuggestion();
+  }
 }
 
-function alert() {
-
+function toggleAlert() {
+  htmlAlert.classList.toggle("hidden");
 }
