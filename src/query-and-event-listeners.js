@@ -12,6 +12,7 @@ var recipeNameInput = document.querySelector(".recipe-name");
 var addNewButton = document.querySelector(".add-new");
 var userMealButton = document.querySelector(".user-meal");
 var htmlAlert = document.querySelector(".alert");
+var seeRecipesButton = document.querySelector(".asee-recipe-button");
 
 // consider querySelectorAll for the radio buttons!
 // will need quite a bit of refactoring!
@@ -27,3 +28,4 @@ addNewButton.addEventListener("click", displayNewUserIdea);
 userMealButton.addEventListener("click", displayUserWholeMeal);
 userMealButton.addEventListener("mouseover", toggleAlert);
 userMealButton.addEventListener("mouseleave", toggleAlert);
+seeRecipesButton.addEventListener("click", takeToAllRecipes);
