@@ -14,22 +14,22 @@
     <main>
       <article class="looking-box">
         <h3>What are you looking for? <span class="required">*</span></h3>
-          <div>
-              <input class="side radio" type="radio" name="radio" value="side">
-              Side
-          </div>
-          <div>
-              <input class="main-dish radio" type="radio" name="radio" value="main-dish">
-              Main Dish
-          </div>
-          <div>
-              <input class="dessert radio" type="radio" name="radio" value="dessert">
-              Dessert
-          </div>
-          <div>
-              <input class="entire-meal radio" type="radio" name="radio" value="entire-meal" >
-              Entire Meal
-          </div>
+        <div>
+          <input class="side radio" type="radio" name="radio" value="side">
+          Side
+        </div>
+        <div>
+          <input class="main-dish radio" type="radio" name="radio" value="main-dish">
+          Main Dish
+        </div>
+        <div>
+          <input class="dessert radio" type="radio" name="radio" value="dessert">
+          Dessert
+        </div>
+        <div>
+          <input class="entire-meal radio" type="radio" name="radio" value="entire-meal" >
+          Entire Meal
+        </div>
         <button class="lets-cook-button" type="button" name="lets-cook">LET'S COOK!</button>
       </article>
       <article class="recipe cookpot">
@@ -42,45 +42,36 @@
           <em>You should make:</em>
           <h1 class="food-suggestion">placeholder</h1>
         </div>
-        <!-- <section class="see-recipe">
-          <button class="see-recipe-button" type="button" name="button">See Recipes!</button>
-        </section> -->
-        <div class="clear-recipe ">
-          <!-- <a class="see-recipe-button" target="_blank" rel="noopener noreferrer" href="https://www.allrecipes.com/search/?wt=">See Recipes!</a> -->
-          <!-- <button class="see-recipe-button" onclick="window.location.href='https://www.allrecipes.com/search/?wt='" type="button" name="button">See Recipes!</button> -->
-        <button class="clear-button" type="button" name="clear">CLEAR</button>
+        <div class="clear-recipe">
+          <button class="clear-button" type="button" name="clear">CLEAR</button>
         </div>
         <div class="both-buttons hidden">
           <a class="see-recipe-button" href="" target="_blank" rel="noopener noreferrer">See Recipes!</a>
-          <!-- <button class="see-recipe-button" onclick="window.location.href='https://www.allrecipes.com/search/?wt='" type="button" name="button">See Recipes!</button> -->
-        <button class="clear-button" type="button" name="clear">CLEAR</button>
+          <button class="clear-button" type="button" name="clear">CLEAR</button>
         </div>
       </article>
-
     </main>
     <form class="footer hidden" action="index.html" method="post">
-        <label for="recipe-type">Choose a recipe type:</label>
-        <select class="recipe-type input" name="">
-          <option value="">--Please choose an option--</option>
-          <option value="side">Side</option>
-          <option value="main">Main Dish</option>
-          <option value="dessert">Dessert</option>
-        </select>
-        <label for="recipe-name">Recipe Name:</label>
-        <input class="recipe-name input" type="text reset" name="recipe-name" value="">
-        <button class="add-new form-button" type="button" name="button">ADD NEW</button>
-        <button class="user-meal form-button" type="button" name="button" title="This button randomly displays a Side, Main Dish, and Dessert that you have entered in the Recipe Name field.">
-          Display My Whole Meal!
-        </button>
-        <div class="alert hidden">
-          ⬅ Randomly displays Side, Main Dish, and Dessert entered.
-        </div>
+      <label for="recipe-type">Choose a recipe type:</label>
+      <select class="recipe-type input" name="">
+        <option value="">--Please choose an option--</option>
+        <option value="side">Side</option>
+        <option value="main">Main Dish</option>
+        <option value="dessert">Dessert</option>
+      </select>
+      <label for="recipe-name">Recipe Name:</label>
+      <input class="recipe-name input" type="text reset" name="recipe-name" value="">
+      <button class="add-new form-button" type="button" name="button">ADD NEW</button>
+      <button class="user-meal form-button" type="button" name="button" title="This button randomly displays a Side, Main Dish, and Dessert that you have entered in the Recipe Name field.">
+        Display My Whole Meal!
+      </button>
+      <div class="alert hidden">
+        ⬅ Randomly displays Side, Main Dish, and Dessert entered.
+      </div>
     </form>
   </body>
   <script type="text/javascript" src="./src/main.js"></script>
   <script type="text/javascript" src="./src/Meal.js"></script>
   <script type="text/javascript" src="./src/data.js"></script>
-  <script type="text/javascript" src="./src/query-and-event-listeners.js">
-
-  </script>
+  <script type="text/javascript" src="./src/query-and-event-listeners.js"></script>
 </html>
