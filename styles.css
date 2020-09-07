@@ -84,6 +84,10 @@ div {
   border: none;
   border-radius: 3px;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .cookpot {

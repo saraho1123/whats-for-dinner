@@ -12,7 +12,7 @@ var recipeNameInput = document.querySelector(".recipe-name");
 var addNewButton = document.querySelector(".add-new");
 var userMealButton = document.querySelector(".user-meal");
 var htmlAlert = document.querySelector(".alert");
-var seeRecipesButton = document.querySelector(".asee-recipe-button");
+var seeRecipesButton = document.querySelector(".see-recipe-button");
 
 // consider querySelectorAll for the radio buttons!
 // will need quite a bit of refactoring!

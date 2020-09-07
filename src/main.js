@@ -143,3 +143,7 @@ function resetNameForm() {
 function toggleAlert() {
   htmlAlert.classList.toggle("hidden");
 }
+
+function takeToAllRecipes() {
+  console.log("recipes");
+}
