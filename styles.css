@@ -67,6 +67,25 @@ div {
   padding-bottom: 7px;
 }
 
+/* .see-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+} */
+
+.see-recipe-button {
+  width: 120px;
+  height: 30px;
+  border: none;
+  background: #7C0120;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+
 .cookpot {
   width: 400;
   display: flex;
@@ -82,8 +101,9 @@ div {
 
 .clear-recipe{
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  /* flex-direction: column; */
+  /* align-items: flex-end; */
+  justify-content: space-between;
 }
 
 .clear-button {
@@ -91,8 +111,8 @@ div {
   height: 30px;
   border: none;
   background: #95a5a6;
-  margin-right: 20px;
-  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
   border: none;
   border-radius: 3px;
   color: white;
@@ -171,14 +191,16 @@ label {
 }
 
 .user-meal:hover {
-  background-color: #E9A984;
+  background-color: #7C0120;
+  color: white;
 }
 
 .alert {
   height: 50px;
   width: 150px;
   font-size: 80%;
-  background: #E9A984;
+  background: #7C0120;
+  color: white;
   border-radius: 10%;
   text-align: center;
 }
