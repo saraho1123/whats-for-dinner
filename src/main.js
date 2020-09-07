@@ -4,24 +4,14 @@ function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displaySuggestion() {
-  var foodSuggestion = document.querySelector(".food-suggestion");
+function letsCook() {
   whichType();
-  if (suggested == undefined) {
-    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
-    hideCookpot();
-    uncheckRadioButton();
-  } else if (suggested === "") {
-    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
-    hideCookpot();
-    uncheckRadioButton();
-  } else {
-      whichType();
-      foodSuggestion.innerText = `${suggested}!`;
-      hideCookpot();
-      uncheckRadioButton();
-    }
-    suggested = "";
+  if (suggested == undefined || suggested === "") {
+    reminderMessageDisplay();
+    } else {
+      displaySuggestion();
+      }
+  suggested = "";
 }
 
 function whichType() {
@@ -36,16 +26,33 @@ function whichType() {
   }
 }
 
+function displaySuggestion() {
+  whichType();
+  foodSuggestion.innerText = `${suggested}!`;
+  hideCookpot();
+  uncheckRadioButton();
+}
+
+function reminderMessageDisplay() {
+  var reminderMessage = `Please choose a Side, Main Dish, Dessert or Entire Meal from the list.`;
+  foodSuggestion.innerText = reminderMessage;
+  hideCookpot();
+  uncheckRadioButton();
+}
+
 function sideSuggestion() {
   suggested = sides[getRandomFoods(sides)];
+  takeToAllRecipes();
 }
 
 function mainDishSuggestion() {
   suggested = mains[getRandomFoods(mains)];
+  takeToAllRecipes();
 }
 
 function dessertSuggestion() {
   suggested = desserts[getRandomFoods(desserts)];
+  takeToAllRecipes();
 }
 
 function entireMealSuggestion() {
@@ -55,12 +62,8 @@ function entireMealSuggestion() {
     desserts[getRandomFoods(desserts)],
   )
   suggested = `${entireMeal.main} with a side of\n${entireMeal.side} and\n${entireMeal.dessert}`;
+  hideRecipeButton();
   return suggested;
-}
-
-function hideCookpot() {
-  suggestion.classList.remove("hidden");
-  cookpot.classList.add("hidden");
 }
 
 function uncheckRadioButton() {
@@ -68,6 +71,11 @@ function uncheckRadioButton() {
   mainDish.checked = false;
   dessert.checked = false;
   entireMeal.checked = false;
+}
+
+function hideCookpot() {
+  suggestion.classList.remove("hidden");
+  cookpot.classList.add("hidden");
 }
 
 function clearSuggestions() {
@@ -78,9 +86,11 @@ function clearSuggestions() {
 function showForm() {
   var form = document.querySelector(".footer");
   form.classList.toggle("hidden");
+  hideRecipeButton();
 }
 
 function displayNewUserIdea() {
+  var recipeTypeInput = document.querySelector(".recipe-type");
   var userType = recipeTypeInput.value.toLowerCase();
   if (userType === 'side') {
     newUserSide();
@@ -97,6 +107,7 @@ function newUserSide() {
   sides.push(newSide);
   userSides.push(newSide);
   suggested = userSides[userSides.length - 1];
+  takeToAllRecipes();
   displaySuggestion();
 }
 
@@ -105,6 +116,7 @@ function newUserMainDish() {
   mains.push(newMain);
   userMains.push(newMain);
   suggested = userMains[userMains.length - 1];
+  takeToAllRecipes();
   displaySuggestion();
 }
 
@@ -113,6 +125,7 @@ function newUserDessert() {
   desserts.push(newDesert);
   userDesserts.push(newDesert);
   suggested = userDesserts[userDesserts.length - 1];
+  takeToAllRecipes();
   displaySuggestion();
 }
 
@@ -125,6 +138,7 @@ function displayUserWholeMeal() {
   } else {
     displaySuggestion();
   }
+  hideRecipeButton();
 }
 
 function getUserRecipeName() {
@@ -141,5 +155,28 @@ function resetNameForm() {
 }
 
 function toggleAlert() {
+  var htmlAlert = document.querySelector(".alert");
   htmlAlert.classList.toggle("hidden");
+}
+
+function takeToAllRecipes() {
+  showRecipeButton();
+  var seeRecipesButton = document.querySelector(".see-recipe-button");
+  var seeBothButtons = document.querySelector(".both-buttons");
+  seeBothButtons.innerHTML = "";
+  seeBothButtons.innerHTML =
+  `<a class="see-recipe-button"
+  href="https://www.allrecipes.com/search/?wt=${suggested}" target="_blank" rel="noopener noreferrer">See Recipes!</a>
+  <button class="clear-button" type="button" name="clear">CLEAR</button>`;
+  seeRecipesButton.addEventListener("click", takeToAllRecipes);
+}
+
+function showRecipeButton() {
+  document.querySelector(".both-buttons").classList.remove("hidden");
+  document.querySelector(".clear-recipe").classList.add("hidden");
+}
+
+function hideRecipeButton() {
+  document.querySelector(".both-buttons").classList.add("hidden");
+  document.querySelector(".clear-recipe").classList.remove("hidden");
 }
