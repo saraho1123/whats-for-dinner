@@ -36,15 +36,22 @@ function getRandomFoods(array) {
 function displaySuggestion() {
   var foodSuggestion = document.querySelector(".food-suggestion");
   whichType();
+  console.log(suggested);
   if (suggested == undefined) {
-    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert in the list.`;
+    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
     hideCookpot();
+    uncheckRadioButton();
+  } else if (suggested === "") {
+    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
+    hideCookpot();
+    uncheckRadioButton();
   } else {
       whichType();
       foodSuggestion.innerText = `${suggested}!`;
       hideCookpot();
       uncheckRadioButton();
     }
+    suggested = "";
 }
 
 function whichType() {
@@ -125,7 +132,7 @@ function newUserSide() {
 
 function newUserMainDish() {
   var newMain = recipeNameInput.value
-  sides.push(newMain);
+  mains.push(newMain);
   userMains.push(newMain);
   suggested = userMains[userMains.length - 1];
   displaySuggestion();
@@ -133,7 +140,7 @@ function newUserMainDish() {
 
 function newUserDessert() {
   var newDesert = recipeNameInput.value
-  sides.push(newDesert);
+  desserts.push(newDesert);
   userDesserts.push(newDesert);
   suggested = userDesserts[userDesserts.length - 1];
   displaySuggestion();
