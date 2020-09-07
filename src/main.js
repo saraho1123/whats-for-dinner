@@ -36,7 +36,6 @@ function getRandomFoods(array) {
 function displaySuggestion() {
   var foodSuggestion = document.querySelector(".food-suggestion");
   whichType();
-  console.log(suggested);
   if (suggested == undefined) {
     foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
     hideCookpot();
