@@ -1,13 +1,3 @@
-/* font-family: 'Roboto', sans-serif;
-
-COLORS
-teal - #0fb9b1;
-frosted white - rgba(225, 225, 225, .9);
-grey - #95a5a6;
-red - #ee5253
-
-*/
-
 html {
   background: url("./assets/burger-friends.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -67,13 +57,6 @@ div {
   padding-bottom: 7px;
 }
 
-/* .see-recipe {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-} */
-
 .see-recipe-button {
   width: 120px;
   height: 30px;
@@ -111,8 +94,6 @@ div {
 
 .both-buttons {
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: flex-end; */
   justify-content: space-between;
 }
 
