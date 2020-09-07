@@ -4,25 +4,14 @@ function getRandomFoods(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displaySuggestion() {
-  var foodSuggestion = document.querySelector(".food-suggestion");
-  var reminderMessage = `Please choose a Side, Main Dish, Dessert or Entire Meal from the list.`;
+function letsCook() {
   whichType();
-  if (suggested == undefined) {
-    foodSuggestion.innerText = reminderMessage;
-    hideCookpot();
-    uncheckRadioButton();
-  } else if (suggested === "") {
-    foodSuggestion.innerText = reminderMessage;
-    hideCookpot();
-    uncheckRadioButton();
-  } else {
-      whichType();
-      foodSuggestion.innerText = `${suggested}!`;
-      hideCookpot();
-      uncheckRadioButton();
-    }
-    suggested = "";
+  if (suggested == undefined || suggested === "") {
+    reminderMessageDisplay();
+    } else {
+      displaySuggestion();
+      }
+  suggested = "";
 }
 
 function whichType() {
@@ -35,6 +24,20 @@ function whichType() {
   } else if (entireMeal.checked) {
       entireMealSuggestion();
   }
+}
+
+function displaySuggestion() {
+  whichType();
+  foodSuggestion.innerText = `${suggested}!`;
+  hideCookpot();
+  uncheckRadioButton();
+}
+
+function reminderMessageDisplay() {
+  var reminderMessage = `Please choose a Side, Main Dish, Dessert or Entire Meal from the list.`;
+  foodSuggestion.innerText = reminderMessage;
+  hideCookpot();
+  uncheckRadioButton();
 }
 
 function sideSuggestion() {
@@ -63,16 +66,16 @@ function entireMealSuggestion() {
   return suggested;
 }
 
-function hideCookpot() {
-  suggestion.classList.remove("hidden");
-  cookpot.classList.add("hidden");
-}
-
 function uncheckRadioButton() {
   side.checked = false;
   mainDish.checked = false;
   dessert.checked = false;
   entireMeal.checked = false;
+}
+
+function hideCookpot() {
+  suggestion.classList.remove("hidden");
+  cookpot.classList.add("hidden");
 }
 
 function clearSuggestions() {
@@ -87,6 +90,7 @@ function showForm() {
 }
 
 function displayNewUserIdea() {
+  var recipeTypeInput = document.querySelector(".recipe-type");
   var userType = recipeTypeInput.value.toLowerCase();
   if (userType === 'side') {
     newUserSide();
@@ -151,12 +155,14 @@ function resetNameForm() {
 }
 
 function toggleAlert() {
+  var htmlAlert = document.querySelector(".alert");
   htmlAlert.classList.toggle("hidden");
 }
 
 function takeToAllRecipes() {
   showRecipeButton();
   var seeRecipesButton = document.querySelector(".see-recipe-button");
+  var seeBothButtons = document.querySelector(".both-buttons");
   seeBothButtons.innerHTML = "";
   seeBothButtons.innerHTML =
   `<a class="see-recipe-button"
