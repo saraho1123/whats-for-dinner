@@ -5,7 +5,6 @@ var mainDish = document.querySelector(".main-dish");
 var dessert = document.querySelector(".dessert");
 var entireMeal = document.querySelector(".entire-meal");
 var cookpot = document.querySelector(".cookpot");
-// var foodSuggestion = document.querySelector(".food-suggestion");
 var suggestion = document.querySelector(".suggestion");
 var clearButton = document.querySelector(".clear-button");
 var addRecipeButton = document.querySelector(".add-recipe-button");
@@ -20,7 +19,7 @@ var htmlAlert = document.querySelector(".alert");
 // NOTE: I tried this and couldn't get it to work!!
 
 // I think want to put all my query selectors and event listeners in
-// a seperate .js file!
+// a seperate .js file before I turn this in.
 
 letsCookButton.addEventListener("click", displaySuggestion);
 clearButton.addEventListener("click", clearSuggestions);
@@ -35,11 +34,17 @@ function getRandomFoods(array) {
 }
 
 function displaySuggestion() {
-  whichType();
   var foodSuggestion = document.querySelector(".food-suggestion");
-  foodSuggestion.innerText = `${suggested}!`;
-  hideCookpot();
-  uncheckRadioButton();
+  whichType();
+  if (suggested == undefined) {
+    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert in the list.`;
+    hideCookpot();
+  } else {
+      whichType();
+      foodSuggestion.innerText = `${suggested}!`;
+      hideCookpot();
+      uncheckRadioButton();
+    }
 }
 
 function whichType() {
@@ -100,7 +105,6 @@ function showForm() {
 
 function displayNewUserIdea() {
   var userType = recipeTypeInput.value.toLowerCase();
-  console.log(userType);
   if (userType === 'side') {
     newUserSide();
   } else if (userType === 'main') {
@@ -108,6 +112,7 @@ function displayNewUserIdea() {
   } else if (userType === 'dessert') {
     newUserDessert();
   }
+  resetNameForm();
 }
 
 function newUserSide() {
@@ -119,30 +124,43 @@ function newUserSide() {
 }
 
 function newUserMainDish() {
-  userMains.push(recipeNameInput.value);
+  var newMain = recipeNameInput.value
+  sides.push(newMain);
+  userMains.push(newMain);
   suggested = userMains[userMains.length - 1];
   displaySuggestion();
 }
 
 function newUserDessert() {
-  userDesserts.push(recipeNameInput.value);
+  var newDesert = recipeNameInput.value
+  sides.push(newDesert);
+  userDesserts.push(newDesert);
   suggested = userDesserts[userDesserts.length - 1];
   displaySuggestion();
 }
 
 function displayUserWholeMeal() {
+  uncheckRadioButton();
+  getUserRecipeName();
+  if (suggested.includes(undefined)) {
+    suggested = `Please enter a Side, Main Dish and Dessert in the form below`;
+    displaySuggestion();
+  } else {
+    displaySuggestion();
+  }
+}
+
+function getUserRecipeName() {
   var userMeal = new Meal(
     userSides[getRandomFoods(userSides)],
     userMains[getRandomFoods(userMains)],
     userDesserts[getRandomFoods(userDesserts)],
   )
   suggested = `${userMeal.main} with a side of\n${userMeal.side} and\n${userMeal.dessert}`;
-  // if (userMeal.main.length === 0 && userMeal.side.length === 0 && userMeal.dessert.length === 0) {
-  //   suggested = `Please choose a side, main dish and Dessert`;
-  //   displaySuggestion();
-  // } else {
-    displaySuggestion();
-  }
+}
+
+function resetNameForm() {
+  recipeNameInput.value = "";
 }
 
 function toggleAlert() {
