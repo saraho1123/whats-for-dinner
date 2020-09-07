@@ -38,14 +38,17 @@ function whichType() {
 
 function sideSuggestion() {
   suggested = sides[getRandomFoods(sides)];
+  takeToAllRecipes();
 }
 
 function mainDishSuggestion() {
   suggested = mains[getRandomFoods(mains)];
+  takeToAllRecipes();
 }
 
 function dessertSuggestion() {
   suggested = desserts[getRandomFoods(desserts)];
+  takeToAllRecipes();
 }
 
 function entireMealSuggestion() {
@@ -55,6 +58,7 @@ function entireMealSuggestion() {
     desserts[getRandomFoods(desserts)],
   )
   suggested = `${entireMeal.main} with a side of\n${entireMeal.side} and\n${entireMeal.dessert}`;
+  hideRecipeButton();
   return suggested;
 }
 
@@ -78,6 +82,7 @@ function clearSuggestions() {
 function showForm() {
   var form = document.querySelector(".footer");
   form.classList.toggle("hidden");
+  hideRecipeButton();
 }
 
 function displayNewUserIdea() {
@@ -97,6 +102,7 @@ function newUserSide() {
   sides.push(newSide);
   userSides.push(newSide);
   suggested = userSides[userSides.length - 1];
+  takeToAllRecipes();
   displaySuggestion();
 }
 
@@ -105,6 +111,7 @@ function newUserMainDish() {
   mains.push(newMain);
   userMains.push(newMain);
   suggested = userMains[userMains.length - 1];
+  takeToAllRecipes();
   displaySuggestion();
 }
 
@@ -113,6 +120,7 @@ function newUserDessert() {
   desserts.push(newDesert);
   userDesserts.push(newDesert);
   suggested = userDesserts[userDesserts.length - 1];
+  takeToAllRecipes();
   displaySuggestion();
 }
 
@@ -125,6 +133,7 @@ function displayUserWholeMeal() {
   } else {
     displaySuggestion();
   }
+  hideRecipeButton();
 }
 
 function getUserRecipeName() {
@@ -145,5 +154,22 @@ function toggleAlert() {
 }
 
 function takeToAllRecipes() {
-  console.log("recipes");
+  showRecipeButton();
+  var seeRecipesButton = document.querySelector(".see-recipe-button");
+  seeBothButtons.innerHTML = "";
+  seeBothButtons.innerHTML =
+  `<a class="see-recipe-button"
+  href="https://www.allrecipes.com/search/?wt=${suggested}" target="_blank" rel="noopener noreferrer">See Recipes!</a>
+  <button class="clear-button" type="button" name="clear">CLEAR</button>`;
+  seeRecipesButton.addEventListener("click", takeToAllRecipes);
+}
+
+function showRecipeButton() {
+  document.querySelector(".both-buttons").classList.remove("hidden");
+  document.querySelector(".clear-recipe").classList.add("hidden");
+}
+
+function hideRecipeButton() {
+  document.querySelector(".both-buttons").classList.add("hidden");
+  document.querySelector(".clear-recipe").classList.remove("hidden");
 }
