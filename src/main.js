@@ -6,13 +6,14 @@ function getRandomFoods(array) {
 
 function displaySuggestion() {
   var foodSuggestion = document.querySelector(".food-suggestion");
+  var reminderMessage = `Please choose a Side, Main Dish, Dessert or Entire Meal from the list.`;
   whichType();
   if (suggested == undefined) {
-    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
+    foodSuggestion.innerText = reminderMessage;
     hideCookpot();
     uncheckRadioButton();
   } else if (suggested === "") {
-    foodSuggestion.innerText = `Please choose a Side, Main Dish and Dessert, or Entire Meal from the list.`;
+    foodSuggestion.innerText = reminderMessage;
     hideCookpot();
     uncheckRadioButton();
   } else {
